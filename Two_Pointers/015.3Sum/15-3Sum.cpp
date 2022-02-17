@@ -2,20 +2,23 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) 
     {
-        sort(nums.begin(), nums.end());
-        vector<vector<int>>result;
+        sort(nums.begin(), nums.end());                           // sort the input vector
+        vector<vector<int>>result;                             
         
         for (int i=0; i<nums.size(); i++)
             cout<<nums[i]<<" ";
         cout<<endl;
         
-        for (int a=0; a<nums.size(); a++)
+        for (int a=0; a<nums.size(); a++)                             // fix the number one by one
         {
 
-            int sum=-nums[a];
+            int sum=-nums[a];                                         // remove the part of first number from that 
             
-            int left=a+1;
-            int right=nums.size()-1;
+            int left=a+1;                                             // left = a + 1 
+            int right=nums.size()-1;                                  // right = nums.size() - 1
+            
+            
+            // use 2 pointer method from here
             
             while (left<right)
             {
@@ -36,7 +39,8 @@ public:
                 
                // cout<<a<<" "<<left<<" "<<right<<endl;
             }
-            
+
+            // most important step to remove duplication
             while (a+1<nums.size() && nums[a]==nums[a+1])
                 a++;
         }
